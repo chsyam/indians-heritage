@@ -15,8 +15,8 @@ export default function Navbar() {
             link: "/"
         },
         {
-            name: "About",
-            link: "/about"
+            name: "Shop All",
+            link: "/shop-all"
         },
         {
             name: "Categories",
@@ -39,6 +39,10 @@ export default function Navbar() {
                     link: "/product-category/others"
                 }
             ]
+        },
+        {
+            name: "About Us",
+            link: "/about"
         },
         {
             name: "Contact Us",

@@ -8,28 +8,40 @@ import { usePathname } from "next/navigation";
 export default function BreadCrumb() {
     const pathname = usePathname();
     const [breadCrumb, setBreadCrumb] = useState([]);
-    const breadCrumbAlternativeTerms = {
-        "about": "About",
-        "contact-us": "Contact Us",
-        "groceries": "Groceries",
-        "pickles": "Pickles",
-        "spices": "Spices",
-        "others": "Others",
+
+    const format = (item) => {
+        let temp = item.replace(/-/g, " ");
+        return temp?.charAt(0)?.toUpperCase() + temp?.slice(1);
     }
-    const ignoredTerms = ["product-category", "product"];
 
     useEffect(() => {
         const list = pathname?.split("/");
         var temp = [];
         for (var i = 0; i < list.length; i++) {
             if (list[i] === "" && i === 0) {
-                temp.push("Home");
-            } else if (list[i] !== "" && !ignoredTerms.includes(list[i])) {
-                if (breadCrumbAlternativeTerms[list[i]]) {
-                    temp.push(breadCrumbAlternativeTerms[list[i]]);
-                } else {
-                    temp.push(list[i].charAt(0).toUpperCase() + list[i].slice(1));
-                }
+                temp.push({
+                    label: "Home",
+                    link: "/",
+                    lastPart: false
+                });
+            } else if (list[i] !== "" && list[i] === "product") {
+                temp.push({
+                    label: "Shop All",
+                    link: "/shop-all",
+                    lastPart: false
+                });
+            } else if (list[i] !== "" && list[i] === "product-category") {
+                temp.push({
+                    label: "Categories",
+                    link: "/categories",
+                    lastPart: false,
+                });
+            } else if (list[i] !== "") {
+                temp.push({
+                    label: format(list[i]),
+                    link: "",
+                    lastPart: i === list.length - 1,
+                });
             }
         }
         setBreadCrumb(temp);
@@ -45,7 +57,7 @@ export default function BreadCrumb() {
                                 breadCrumb?.map((item, index) => {
                                     return (
                                         <li key={index} className={`${index === breadCrumb.length - 1 && styles.activePart}`}>
-                                            <Link href="/">{item}</Link>
+                                            <Link href={item?.link}>{item?.label}</Link>
                                             {
                                                 index !== breadCrumb.length - 1 && (
                                                     <span className="px-2">{">"}</span>

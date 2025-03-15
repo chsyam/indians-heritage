@@ -20,7 +20,7 @@ export default function Header() {
     return (
         <header className={styles.container}>
             <div className={styles.header}>
-                <img onClick={() => window.location.reload()} className="cursor-pointer" src="/images/logo.svg" alt="Logo" width={100} height={75} />
+                <img onClick={() => window.location.href = "/"} className="cursor-pointer" src="/images/logo.svg" alt="Logo" width={100} height={75} />
                 <div className="flex items-center justify-start gap-8">
                     <Link className={styles.menuItem} href="/watchlist" onMouseEnter={handleWatchListHovering} onMouseLeave={handleWatchListHovering}>
                         <Heart strokeWidth={2} size={28} color={`${watchListHover ? '#EF5D29' : 'black'}`} />
@@ -33,7 +33,7 @@ export default function Header() {
                         <ShoppingCart strokeWidth={2} size={28} color={`${cartHover ? '#EF5D29' : 'black'}`} />
                         <div>
                             <span>Cart</span><br />
-                            <span className="text-[#EF5D29]">$ 0.00</span>
+                            <span className="text-[#EF5D29] font-medium">$ 0.00</span>
                         </div>
                     </Link>
                 </div>
