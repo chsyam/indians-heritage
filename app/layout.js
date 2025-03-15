@@ -1,5 +1,6 @@
 import React from "react";
 import "./globals.css";
+import { BreadCrumb, Header, Navbar } from "@/components/layout";
 
 export const metadata = {
 	title: "Indians Heritage",
@@ -10,6 +11,9 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body suppressHydrationWarning>
+				<Header />
+				<Navbar />
+				<BreadCrumb />
 				{children}
 			</body>
 		</html>

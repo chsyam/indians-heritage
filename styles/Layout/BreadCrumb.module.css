@@ -1,0 +1,23 @@
+.container {
+    background-color: #f4f4f4;
+}
+
+.breadCrumb {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 20px 20px;
+}
+
+.breadCrumbContent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+
+    font-weight: 500;
+    color: gray;
+}
+
+.activePart {
+    color: #EF5D29;
+}
