@@ -65,11 +65,13 @@
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    margin: 20px 0;
 }
 
 .product_description {
     margin: 20px 0;
     letter-spacing: 0.25px;
+    font-weight: 300;
 }
 
 .product_menu {
@@ -77,11 +79,43 @@
     justify-content: flex-start;
     align-items: center;
     gap: 20px;
+    border-top: 1px solid #DEDEDE;
+    padding: 20px 0;
 }
 
-.productCountInput input[type="number"],
-.productCountInput input[type="number"] {
-    -webkit-appearance: none;
-    margin: 0;
-    appearance: textfield;
+.productCountInput {
+    outline: none;
+    width: 40px;
+    margin: 0 10px;
+    font-weight: 600;
+}
+
+.product_weight {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.product_weight span {
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin: 0 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+.product_weight span:hover {
+    background-color: #EF5D29;
+    color: white;
+    border: 2px solid #EF5D29;
+}
+
+.activeVarient {
+    background-color: #EF5D29;
+    color: white;
+    border: 2px solid #EF5D29;
 }

@@ -8,6 +8,32 @@ import { CircleChevronLeft, CircleChevronRight, Heart, Minus, Plus } from "lucid
 
 export default function Product({ params }) {
     const { slug } = React.use(params);
+    const varients = [
+        {
+            "id": 1,
+            "weight": "250g",
+            "price": 10,
+            "discount": 0,
+            "discountedPrice": 10,
+        },
+        {
+            "id": 2,
+            "weight": "500g",
+            "price": 20,
+            "discount": 0,
+            "discountedPrice": 20,
+        },
+        {
+            "id": 3,
+            "weight": "1kg",
+            "price": 30,
+            "discount": 0,
+            "discountedPrice": 30,
+        }
+    ]
+
+    const [selectedWeight, setSelectedWeight] = useState(varients[0]);
+
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
     });
@@ -64,6 +90,14 @@ export default function Product({ params }) {
         }
     }
 
+    const handleInputChange = (count) => {
+        if (parseInt(count) && parseInt(count) > 0) {
+            setProductCount(parseInt(count));
+        } else {
+            setProductCount(1);
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.product_container}>
@@ -102,13 +136,26 @@ export default function Product({ params }) {
                     </div>
                 </div>
                 <div className={styles.product_details}>
-                    <div className={styles.product_title}>Humor New Agregado</div>
+                    <div className={styles.product_title}>
+                        Almonds
+                    </div>
                     <div className={styles.product_price}>
-                        <div className="font-medium text-2xl">$ 550.00</div>
+                        <div className="font-medium text-2xl">$ {selectedWeight?.discountedPrice?.toFixed(2)}</div>
                         <div className="line-through">$ 700.00</div>
                     </div>
                     <div className={styles.product_description}>
                         Almonds are highly nutritious and versatile nuts known for their numerous health benefits. They are rich in healthy fats, protein, fiber, vitamins, and minerals, making them an excellent addition to a balanced diet. Consuming almonds regularly supports heart health by reducing bad cholesterol levels and promoting good cholesterol. They are also beneficial for brain function, skin health, and weight management due to their high antioxidant and fiber content.
+                    </div>
+                    <div className={styles.product_weight}>
+                        <div className="font-medium">Weight:</div>
+                        <div className="">
+                            {
+                                varients.map((varient, index) => (
+                                    <span key={index} className={`${selectedWeight.id === varient.id && styles.activeVarient}`} onClick={() => setSelectedWeight(varient)}>
+                                        {varient.weight}
+                                    </span>
+                                ))}
+                        </div>
                     </div>
                     <div className={styles.product_menu}>
                         <div>
@@ -117,14 +164,22 @@ export default function Product({ params }) {
                         <div className="cursor-pointer">
                             <Heart size={32} />
                         </div>
-                        <div className="flex gap-1">
-                            <div onClick={() => handleCountChange("minus")}>
+                        <div className="flex flex-nowrap border-2 border-black rounded-md">
+                            <div onClick={() => handleCountChange("minus")} className="border-r-2 border-black py-2 px-2 cursor-pointer">
                                 <Minus />
                             </div>
-                            <input value={productCount} onChange={(e) => setProductCount(e.target.value)} className={styles.productCountInput} type="number" />
-                            <div onClick={() => handleCountChange("plus")}>
+                            <input value={productCount} onChange={(e) => handleInputChange(e.target.value)} className={styles.productCountInput} type="text" />
+                            <div onClick={() => handleCountChange("plus")} className="py-2 px-2 border-l-2 border-black cursor-pointer">
                                 <Plus />
                             </div>
+                        </div>
+                    </div>
+                    <div className="flex gap-2 my-[20px]">
+                        <div>Tags: </div>
+                        <div>
+                            <span className="px-1">Almonds,</span>
+                            <span className="px-1">Healthy,</span>
+                            <span className="px-1">Nutritious</span>
                         </div>
                     </div>
                 </div>
