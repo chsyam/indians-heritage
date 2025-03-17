@@ -5,9 +5,18 @@ import styles from "./../../../styles/product/Product.module.css";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { CircleChevronLeft, CircleChevronRight, Heart, Minus, Plus } from "lucide-react";
+import { InstagramSVG, TwitterSVG, WhatsappSVG } from "@/components/icons";
+import { Box, Tab } from "@mui/material";
+import { TabContext, TabList, TabPanel } from '@mui/lab'
 
 export default function Product({ params }) {
     const { slug } = React.use(params);
+    const [value, setValue] = React.useState('1');
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     const varients = [
         {
             "id": 1,
@@ -182,6 +191,74 @@ export default function Product({ params }) {
                             <span className="px-1">Nutritious</span>
                         </div>
                     </div>
+                    <div className="my-[10px] flex justify-start items-center gap-4 flex-wrap">
+                        <div className="font-medium">Share: </div>
+                        <div className="flex gap-1 flex-nowrap font-medium items-center justify-start bg-[#00AAF0] text-white border-2 border-[#00AAF0] py-2 px-4 rounded-md w-fit cursor-pointer">
+                            <TwitterSVG width={24} height={24} fill="#FFF" /> Twitter
+                        </div>
+                        <div className="flex gap-1 flex-nowrap font-medium items-center justify-start bg-green-600 text-white border-2 border-green-600 py-2 px-4 rounded-md w-fit cursor-pointer">
+                            <WhatsappSVG width={24} height={24} /> Whatsapp
+                        </div>
+                        <div className="flex gap-1 flex-nowrap font-medium items-center justify-start bg-[#ED6944] text-white py-2 px-4 rounded-md w-fit cursor-pointer">
+                            <InstagramSVG width={24} height={24} /> Instagram
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="border-b-2 border-[#DEDEDE] my-[40px]">
+                <Box sx={{ width: '100%', typography: 'body1' }}>
+                    <TabContext value={value}>
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList onChange={handleChange} centered>
+                                <Tab sx={{ fontFamily: "IBM Plex Sans", textTransform: "none", fontSize: '18px', color: '#000', fontWeight: 500 }} label="Description" value="1" />
+                                <Tab sx={{ fontFamily: "IBM Plex Sans", textTransform: "none", fontSize: '18px', color: '#000', fontWeight: 500 }} label="Shipping Policy" value="2" />
+                            </TabList>
+                        </Box>
+                        <TabPanel sx={{ fontFamily: "IBM Plex Sans" }} value="1">
+                            <div className="my-[15px]">
+                                Almonds (Prunus dulcis) are nutrient-rich nuts known for their numerous health benefits. Originating from the Middle East, they are now primarily cultivated in California, USA. They are packed with protein, fiber, healthy fats, vitamin E, and magnesium, supporting heart and brain health.
+                                <br />
+                                <br />
+                                Almonds help lower bad cholesterol (LDL) while boosting good cholesterol (HDL) and regulating blood sugar levels. Their antioxidants protect against oxidative stress, reducing the risk of chronic diseases. Regular consumption aids in weight management, improves digestion, and enhances skin and hair health. They are consumed in various forms, such as raw, roasted, soaked, almond milk, and almond butter. Almonds also strengthen bones, boost immunity, and promote mental well-being by reducing stress.
+                                <br />
+                                <br />
+                                Their low glycemic index makes them a great choice for diabetics. Versatile and delicious, almonds are a staple in healthy diets worldwide.
+                            </div>
+                        </TabPanel>
+                        <TabPanel sx={{ fontFamily: "IBM Plex Sans" }} value="2">
+                            <div className="my-[15px]">
+                                <div className="my-4 text-xl font-medium">
+                                    Shipping policy for our store
+                                </div>
+                                <div className="my-4">
+                                    Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.
+                                </div>
+                                <ul className="list-disc my-4 pl-[20px]">
+                                    <li>Orders are processed within 1-2 business days (excluding weekends and holidays).</li>
+                                    <li>Typically, orders are delivered by the end of the day once shipped.</li>
+                                    <li>A tracking number will be provided via email once your order has been shipped.</li>
+                                    <li>We currently ship to multiple locations. Please check our service areas before placing an order.</li>
+                                    <li>We use reliable carriers to ensure fast and secure delivery.</li>
+                                    <li>Shipping fees may vary based on location and selected shipping method.</li>
+                                    <li>Unforeseen circumstances such as weather or courier delays may impact delivery times.</li>
+                                </ul>
+                                <div className="my-4">
+                                    Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.
+                                    <br />
+                                    <br />
+                                    Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.Orders during peak seasons may take longer to arrive. Please ensure someone is available to receive the package at the provided address. If you receive a damaged product, report it within 48 hours for a replacement.
+                                    <br />
+                                    <br />
+                                    For any questions or concerns, reach out via email, chat, or phone.
+                                </div>
+                            </div>
+                        </TabPanel>
+                    </TabContext>
+                </Box>
+            </div>
+            <div>
+                <div className="text-2xl font-medium">
+                    Related Products
                 </div>
             </div>
         </div>
