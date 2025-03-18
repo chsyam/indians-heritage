@@ -4,10 +4,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import styles from "./../../../styles/product/Product.module.css";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
-import { CircleChevronLeft, CircleChevronRight, Heart, Minus, Plus } from "lucide-react";
+import { CircleChevronDown, CircleChevronLeft, CircleChevronRight, Heart, Minus, Plus } from "lucide-react";
 import { InstagramSVG, TwitterSVG, WhatsappSVG } from "@/components/icons";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from '@mui/lab'
+import ProductCard from "@/components/product/ProductCard";
 
 export default function Product({ params }) {
     const { slug } = React.use(params);
@@ -259,6 +260,23 @@ export default function Product({ params }) {
             <div>
                 <div className="text-2xl font-medium">
                     Related Products
+                </div>
+                <div className={styles.relatedProducts}>
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                </div>
+            </div>
+            <div className="w-fit mx-auto">
+                <div className="flex flex-col justify-center items-center mt-[40px] cursor-pointer hover:text-[#EF5D29]">
+                    <CircleChevronDown strokeWidth={1.5} size={50} />
+                    <span className="font-medium text-xl">See All</span>
                 </div>
             </div>
         </div>
