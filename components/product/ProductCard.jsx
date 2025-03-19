@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import styles from "./../../styles/product/ProductCard.module.css";
 import { ExternalLink, Heart, ShoppingCart } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ProductCard() {
+    const router = useRouter();
+
     return (
         <div className={styles.product_card}>
             <div className={styles.product_image}>
@@ -23,7 +28,7 @@ export default function ProductCard() {
                         <div className="cursor-pointer hover:text-[#EF5D29]">
                             <Heart />
                         </div>
-                        <div className="cursor-pointer hover:text-[#EF5D29]">
+                        <div className="cursor-pointer hover:text-[#EF5D29]" onClick={() => router.push("/product/sample")}>
                             <ExternalLink />
                         </div>
                     </div>
