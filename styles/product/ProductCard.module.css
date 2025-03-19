@@ -1,8 +1,16 @@
+.product_card {
+    background-color: #e6e6e6;
+    padding: 20px 10px;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 0.15);
+}
+
 .product_image {
-    width: 250px;
+    width: 100%;
+    max-width: 275px;
+    min-width: 200px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin: auto;
 }
 
 .product_image img {
@@ -20,19 +28,11 @@
     gap: 10px;
     align-items: center;
     background-color: white;
-
-    position: absolute;
-    bottom: -100%;
-    left: 0;
     width: 100%;
     background: #FFFFFF;
     padding: 10px;
     transition: 0.20s all ease-in-out;
     filter: opacity(0.85)
-}
-
-.product_image:hover .product_options {
-    bottom: 1px;
 }
 
 .product_price {

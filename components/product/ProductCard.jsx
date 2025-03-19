@@ -5,7 +5,7 @@ import { ExternalLink, Heart, ShoppingCart } from "lucide-react";
 
 export default function ProductCard() {
     return (
-        <div>
+        <div className={styles.product_card}>
             <div className={styles.product_image}>
                 <Image
                     src={`/images/almonds-1.jpg`}
@@ -28,14 +28,14 @@ export default function ProductCard() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <div className="text-xl font-medium mt-4">
-                    Almonds
-                </div>
-                <div className={styles.product_price}>
-                    <div className="font-medium text-xl">$ {100?.toFixed(2)}</div>
-                    <div className="line-through">$ 700.00</div>
+                <div className="">
+                    <div className="text-xl font-medium mt-4">
+                        Almonds
+                    </div>
+                    <div className={styles.product_price}>
+                        <div className="font-medium text-xl">$ {100?.toFixed(2)}</div>
+                        <div className="line-through">$ 700.00</div>
+                    </div>
                 </div>
             </div>
         </div>
