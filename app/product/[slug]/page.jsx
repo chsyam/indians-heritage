@@ -166,7 +166,7 @@ export default function Product({ params }) {
                         <div>
                             {
                                 productDetails?.product_tags?.map((tag, index) => (
-                                    <span key={index} className="px-1">#{tag}</span>
+                                    <span key={index} className="px-1 hover:text-blue-700">#{tag}</span>
                                 ))
                             }
                         </div>
