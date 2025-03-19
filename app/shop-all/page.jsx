@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import styles from "./../../styles/categories/Categories.module.css";
-// import { Grip, TableOfContents } from "lucide-react";
+import { Grip, TableOfContents } from "lucide-react";
 import dynamic from "next/dynamic";
 import ProductCard from "@/components/product/ProductCard";
 
@@ -10,11 +10,11 @@ const Select = dynamic(() => import('react-select'), { ssr: false });
 
 export default function ShopAll() {
     const [selectedFilter, setSelectedFilter] = useState({ value: 'Featured', label: 'Featured' });
-    // const [cardType, setCardType] = useState('grid');
+    const [cardType, setCardType] = useState('grid');
 
-    // const handleCardTypeChange = (type) => {
-    //     setCardType(type);
-    // };
+    const handleCardTypeChange = (type) => {
+        setCardType(type);
+    };
 
     const filterOptions = [
         { value: 'Featured', label: 'Featured' },
@@ -59,15 +59,14 @@ export default function ShopAll() {
                 </div> */}
                 <div>
                     <div className={styles.filter_section}>
-                        {/* <div className="flex justify-start items-center gap-4 flex-nowrap">
+                        <div className="flex justify-start items-center gap-4 flex-nowrap">
                             <div className={`cursor-pointer hover:text-[#EF5D29] ${cardType === "grid" && 'text-[#EF5D29]'}`} onClick={() => handleCardTypeChange("grid")}>
                                 <Grip size={32} strokeWidth={2} />
                             </div>
                             <div className={`cursor-pointer hover:text-[#EF5D29] ${cardType === "list" && 'text-[#EF5D29]'}`} onClick={() => handleCardTypeChange("list")}>
                                 <TableOfContents size={32} strokeWidth={2} />
                             </div>
-                        </div> */}
-                        <div></div>
+                        </div>
                         <div className="flex justify-start items-center gap-4 flex-nowrap font-medium">
                             Sort by <Select
                                 placeholder="Select a filter"
@@ -80,7 +79,7 @@ export default function ShopAll() {
                                         fontSize: '14px',
                                         border: '2px solid #dedede',
                                         fontWeight: 500,
-                                        minWidth: '180px'
+                                        minWidth: '200px'
                                     }),
                                 }}
                             />

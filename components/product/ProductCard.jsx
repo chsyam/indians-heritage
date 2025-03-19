@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./../../styles/product/ProductCard.module.css";
 import { ExternalLink, Heart, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function ProductCard() {
     const router = useRouter();
+    const [watchListItem, setWatchListItem] = useState(false);
 
     return (
         <div className={styles.product_card}>
@@ -24,9 +25,9 @@ export default function ProductCard() {
                         <ShoppingCart />
                         <span className="font-medium">Add To Cart</span>
                     </div>
-                    <div className="flex justify-start items-center gap-2 flex-nowrap">
-                        <div className="cursor-pointer hover:text-[#EF5D29]">
-                            <Heart />
+                    <div className="flex justify-start items-center gap-3 flex-nowrap">
+                        <div className="cursor-pointer hover:text-[#EF5D29]" onMouseEnter={() => setWatchListItem(true)} onMouseLeave={() => setWatchListItem(false)}>
+                            <Heart fill={`${(watchListItem) ? '#EF5D29' : '#FFFFFF'}`} />
                         </div>
                         <div className="cursor-pointer hover:text-[#EF5D29]" onClick={() => router.push("/product/sample")}>
                             <ExternalLink />
@@ -39,7 +40,7 @@ export default function ProductCard() {
                     </div>
                     <div className={styles.product_price}>
                         <div className="font-medium text-xl">$ {100?.toFixed(2)}</div>
-                        <div className="line-through">$ 700.00</div>
+                        <div className="line-through font-medium text-[#EF5D29]">$ 700.00</div>
                     </div>
                 </div>
             </div>

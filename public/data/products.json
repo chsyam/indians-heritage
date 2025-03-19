@@ -1,3 +1,54 @@
 [
-    
+  {
+    "product_id": "1",
+    "product_name": "Almonds",
+    "product_category": "dryfruits",
+    "product_slug": "almonds",
+    "product_description": "Almonds are highly nutritious and versatile nuts known for their numerous health benefits. They are rich in healthy fats, protein, fiber, vitamins, and minerals, making them an excellent addition to a balanced diet. Consuming almonds regularly supports heart health by reducing bad cholesterol levels and promoting good cholesterol. They are also beneficial for brain function, skin health, and weight management due to their high antioxidant and fiber content.",
+    "product_main_image": {
+      "type": "image",
+      "url": "/images/almonds-1.jpg"
+    },
+    "product_gallary": [
+      {
+        "type": "image",
+        "url": "/images/almonds-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-4.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-5.jpg"
+      }
+    ],
+    "product_variations": [
+      {
+        "variant_id": "1",
+        "weight": 250,
+        "units": "g",
+        "price": 100.0
+      },
+      {
+        "variant_id": "2",
+        "weight": 500,
+        "units": "g",
+        "price": 200.0
+      },
+      {
+        "variant_id": "3",
+        "weight": 1,
+        "units": "Kg",
+        "price": 400.0
+      }
+    ],
+    "product_tags": ["Almonds", "Healthy", "Nutritious"],
+    "discount_rate": 10.0,
+    "stock_available": 100
+  }
 ]

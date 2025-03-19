@@ -9,79 +9,36 @@ import { InstagramSVG, TwitterSVG, WhatsappSVG } from "@/components/icons";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import ProductCard from "@/components/product/ProductCard";
+import products from "@/public/data/products.json";
 
 export default function Product({ params }) {
     const { slug } = React.use(params);
     const [value, setValue] = React.useState('1');
+    const [productDetails, setProductDetails] = useState({});
+    const [mainImage, setMainImage] = useState({});
+    const [productCount, setProductCount] = useState(1);
+    const [selectedWeight, setSelectedWeight] = useState({});
+
+    useEffect(() => {
+        const product = products.find((item) => item.product_slug === slug);
+        setMainImage(product?.product_main_image);
+        setSelectedWeight(product?.product_variations[0]);
+        setProductDetails(product);
+    }, []);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const varients = [
-        {
-            "id": 1,
-            "weight": "250g",
-            "price": 10,
-            "discount": 0,
-            "discountedPrice": 10,
-        },
-        {
-            "id": 2,
-            "weight": "500g",
-            "price": 20,
-            "discount": 0,
-            "discountedPrice": 20,
-        },
-        {
-            "id": 3,
-            "weight": "1kg",
-            "price": 30,
-            "discount": 0,
-            "discountedPrice": 30,
-        }
-    ]
-
-    const [selectedWeight, setSelectedWeight] = useState(varients[0]);
-
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
     });
 
-    useEffect(() => {
-        if (emblaApi) {
-            console.log(emblaApi.slideNodes())
-        }
-    }, [emblaApi]);
-
-    const productGallary = [
-        {
-            type: "image",
-            "url": "/images/almonds-1.jpg"
-        },
-        {
-            type: "image",
-            "url": "/images/almonds-2.jpg"
-        },
-        {
-            type: "image",
-            "url": "/images/almonds-3.jpg"
-        },
-        {
-            type: "image",
-            "url": "/images/almonds-4.jpg"
-        },
-        {
-            type: "image",
-            "url": "/images/almonds-5.jpg"
-        }
-    ];
-
-    const [mainImage, setMainImage] = useState(productGallary[0]);
-    const [productCount, setProductCount] = useState(1);
-
     const handleImageClick = (index) => {
-        setMainImage(productGallary[index]);
+        if (productDetails?.product_gallary?.length > index)
+            setMainImage(productDetails?.product_gallary[index]);
+        else
+            setMainImage(productDetails?.product_gallary[0]);
     }
 
     const scrollPrev = useCallback(() => {
@@ -108,61 +65,81 @@ export default function Product({ params }) {
         }
     }
 
+    const getDiscountedPrice = (price, discount_rate) => {
+        if (discount_rate === 0) {
+            return price;
+        }
+        let discount = parseFloat(price) * parseFloat(discount_rate);
+        return (parseFloat(price) - (discount / 100)).toFixed(2);
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.product_container}>
                 <div className={styles.product_gallery}>
                     <div className={styles.mainImage}>
-                        <Image src={mainImage.url} alt={slug} width="350" height="200" />
+                        {
+                            mainImage?.url && (
+                                <Image src={mainImage?.url} alt={slug} width="350" height="200" />
+                            )
+                        }
                     </div>
                     <div>
-                        <div className={styles.embla}>
-                            <div className={styles.embla__viewport} ref={emblaRef}>
-                                <div className={styles.embla__container}>
-                                    {
-                                        productGallary.map((image, index) => (
-                                            <div key={index} className={styles.embla__slide} onClick={() => handleImageClick(index)}>
-                                                <Image
-                                                    src={image.url}
-                                                    alt={`Almond ${index}`}
-                                                    width={100}
-                                                    height={100}
-                                                    className="rounded-md"
-                                                />
-                                            </div>
-                                        ))
-                                    }
+                        {
+                            (productDetails?.product_gallary?.length > 0) && (
+                                <div className={styles.embla}>
+                                    <div className={styles.embla__viewport} ref={emblaRef}>
+                                        <div className={styles.embla__container}>
+                                            {
+                                                productDetails?.product_gallary?.map((image, index) => (
+                                                    <div key={index} className={styles.embla__slide} onClick={() => handleImageClick(index)}>
+                                                        <Image
+                                                            src={image.url}
+                                                            alt={`${image.url} ${index}`}
+                                                            width={100}
+                                                            height={100}
+                                                            className="rounded-md"
+                                                        />
+                                                    </div>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 my-4">
+                                        <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
+                                            <CircleChevronLeft size={32} />
+                                        </button>
+                                        <button className="embla__next cursor-pointer" onClick={scrollNext}>
+                                            <CircleChevronRight size={32} />
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex gap-4 my-4">
-                                <button className="embla__prev cursor-pointer" onClick={scrollPrev}>
-                                    <CircleChevronLeft size={32} />
-                                </button>
-                                <button className="embla__next cursor-pointer" onClick={scrollNext}>
-                                    <CircleChevronRight size={32} />
-                                </button>
-                            </div>
-                        </div>
+                            )
+                        }
                     </div>
                 </div>
                 <div className={styles.product_details}>
                     <div className={styles.product_title}>
-                        Almonds
+                        {productDetails?.product_name}
                     </div>
                     <div className={styles.product_price}>
-                        <div className="font-medium text-2xl">$ {selectedWeight?.discountedPrice?.toFixed(2)}</div>
-                        <div className="line-through">$ 700.00</div>
+                        <div className="font-medium text-2xl">
+                            $ {getDiscountedPrice(selectedWeight?.price, productDetails?.discount_rate)}
+                        </div>
+                        <div className="line-through">
+                            $ {selectedWeight?.price?.toFixed(2)}
+                        </div>
                     </div>
                     <div className={styles.product_description}>
-                        Almonds are highly nutritious and versatile nuts known for their numerous health benefits. They are rich in healthy fats, protein, fiber, vitamins, and minerals, making them an excellent addition to a balanced diet. Consuming almonds regularly supports heart health by reducing bad cholesterol levels and promoting good cholesterol. They are also beneficial for brain function, skin health, and weight management due to their high antioxidant and fiber content.
+                        {productDetails?.product_description}
                     </div>
                     <div className={styles.product_weight}>
                         <div className="font-medium">Weight:</div>
                         <div className="">
                             {
-                                varients.map((varient, index) => (
-                                    <span key={index} className={`${selectedWeight.id === varient.id && styles.activeVarient}`} onClick={() => setSelectedWeight(varient)}>
-                                        {varient.weight}
+                                productDetails?.product_variations?.map((varient, index) => (
+                                    <span key={index} className={`${selectedWeight.variant_id === varient.variant_id && styles.activeVarient}`} onClick={() => setSelectedWeight(varient)}>
+                                        {varient.weight} {varient.units}
                                     </span>
                                 ))}
                         </div>
@@ -187,9 +164,11 @@ export default function Product({ params }) {
                     <div className="flex gap-2 my-[20px]">
                         <div>Tags: </div>
                         <div>
-                            <span className="px-1">Almonds,</span>
-                            <span className="px-1">Healthy,</span>
-                            <span className="px-1">Nutritious</span>
+                            {
+                                productDetails?.product_tags?.map((tag, index) => (
+                                    <span key={index} className="px-1">{tag}</span>
+                                ))
+                            }
                         </div>
                     </div>
                     <div className="my-[10px] flex justify-start items-center gap-4 flex-wrap">
