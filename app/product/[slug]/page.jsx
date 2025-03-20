@@ -18,6 +18,7 @@ export default function Product({ params }) {
     const [mainImage, setMainImage] = useState({});
     const [productCount, setProductCount] = useState(1);
     const [selectedWeight, setSelectedWeight] = useState({});
+    const [relatedProductsList, setRelatedProductsList] = useState([]);
 
     useEffect(() => {
         const product = products.find((item) => item.product_slug === slug);
@@ -25,6 +26,13 @@ export default function Product({ params }) {
         setSelectedWeight(product?.product_variations[0]);
         setProductDetails(product);
     }, []);
+
+    useEffect(() => {
+        if (productDetails?.product_category) {
+            const temp = products?.filter((item) => item.product_category === productDetails?.product_category);
+            setRelatedProductsList(temp)
+        }
+    }, [productDetails])
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -166,7 +174,7 @@ export default function Product({ params }) {
                         <div>
                             {
                                 productDetails?.product_tags?.map((tag, index) => (
-                                    <span key={index} className="px-1 hover:text-blue-700">#{tag}</span>
+                                    <span key={index} className="px-2 hover:text-blue-700 font-medium cursor-pointer">#{tag}</span>
                                 ))
                             }
                         </div>
@@ -241,15 +249,13 @@ export default function Product({ params }) {
                     Related Products
                 </div>
                 <div className={styles.relatedProducts}>
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
+                    {
+                        relatedProductsList?.map((item, index) => {
+                            return (
+                                <ProductCard key={index} productDetails={item} />
+                            )
+                        })
+                    }
                 </div>
             </div>
             <div className="w-fit mx-auto">

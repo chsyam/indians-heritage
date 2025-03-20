@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./../../styles/categories/Categories.module.css";
 import { Grip, TableOfContents } from "lucide-react";
 import dynamic from "next/dynamic";
 import ProductCard from "@/components/product/ProductCard";
+import products from "@/public/data/products.json";
 
 const Select = dynamic(() => import('react-select'), { ssr: false });
 
 export default function ShopAll() {
     const [selectedFilter, setSelectedFilter] = useState({ value: 'Featured', label: 'Featured' });
     const [cardType, setCardType] = useState('grid');
+    const [allProducts, setAllProducts] = useState([]);
+
+    useEffect(() => {
+        setAllProducts(products);
+    }, [])
 
     const handleCardTypeChange = (type) => {
         setCardType(type);
@@ -86,12 +92,13 @@ export default function ShopAll() {
                         </div>
                     </div>
                     <div className={styles.card_section}>
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+                        {
+                            allProducts?.map((product, index) => {
+                                return (
+                                    <ProductCard key={index} productDetails={product} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

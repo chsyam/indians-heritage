@@ -5,18 +5,28 @@ import styles from "./../../../styles/categories/Categories.module.css";
 import { Grip, TableOfContents } from "lucide-react";
 import dynamic from "next/dynamic";
 import ProductCard from "@/components/product/ProductCard";
+import products from "@/public/data/products.json";
 
 const Select = dynamic(() => import('react-select'), { ssr: false });
 
 export default function ProductCategory({ params }) {
     const { slug } = React.use(params);
     const [title, setTitle] = useState("");
+    const [productsList, setProductsList] = useState([]);
 
     useEffect(() => {
         try {
             setTitle(slug[0].toUpperCase() + slug.slice(1,).toLowerCase());
         } catch (error) {
             setTitle("");
+            console.log(error);
+        }
+
+        try {
+            const temp = products.filter((item) => item.product_category === slug);
+            setProductsList(temp);
+        } catch (error) {
+            setProductsList([]);
             console.log(error);
         }
     }, [slug])
@@ -101,12 +111,13 @@ export default function ProductCategory({ params }) {
                         </div>
                     </div>
                     <div className={styles.card_section}>
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
-                        <ProductCard />
+                        {
+                            productsList?.map((item, index) => {
+                                return (
+                                    <ProductCard key={index} productDetails={item} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>

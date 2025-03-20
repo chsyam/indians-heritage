@@ -15,7 +15,7 @@ export default function Navbar() {
             link: "/"
         },
         {
-            name: "Shop All",
+            name: "Shop",
             link: "/shop-all"
         },
         {
@@ -33,6 +33,10 @@ export default function Navbar() {
                 {
                     name: "Spices",
                     link: "/product-category/spices"
+                },
+                {
+                    name: "Dry fruits",
+                    link: "/product-category/dryfruits"
                 },
                 {
                     name: "Others",
