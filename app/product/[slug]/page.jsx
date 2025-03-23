@@ -5,7 +5,7 @@ import styles from "./../../../styles/product/Product.module.css";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { CircleChevronDown, CircleChevronLeft, CircleChevronRight, Heart, Minus, Plus } from "lucide-react";
-import { InstagramSVG, TwitterSVG, WhatsappSVG } from "@/components/icons";
+import { InstagramSVG, WhatsappSVG } from "@/components/icons";
 import { Box, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from '@mui/lab'
 import ProductCard from "@/components/product/ProductCard";
@@ -181,9 +181,6 @@ export default function Product({ params }) {
                     </div>
                     <div className="my-[10px] flex justify-start items-center gap-4 flex-wrap">
                         <div className="font-medium">Share: </div>
-                        <div className="flex gap-1 flex-nowrap font-medium items-center justify-start bg-[#00AAF0] text-white border-2 border-[#00AAF0] py-2 px-4 rounded-md w-fit cursor-pointer">
-                            <TwitterSVG width={24} height={24} fill="#FFF" /> Twitter
-                        </div>
                         <div className="flex gap-1 flex-nowrap font-medium items-center justify-start bg-green-600 text-white border-2 border-green-600 py-2 px-4 rounded-md w-fit cursor-pointer">
                             <WhatsappSVG width={24} height={24} /> Whatsapp
                         </div>

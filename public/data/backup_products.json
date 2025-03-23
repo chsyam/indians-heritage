@@ -1,0 +1,166 @@
+[
+  {
+    "product_id": "1",
+    "product_name": "Almonds",
+    "product_category": "dryfruits",
+    "product_slug": "almonds",
+    "product_description": "Almonds are highly nutritious and versatile nuts known for their numerous health benefits. They are rich in healthy fats, protein, fiber, vitamins, and minerals, making them an excellent addition to a balanced diet. Consuming almonds regularly supports heart health by reducing bad cholesterol levels and promoting good cholesterol. They are also beneficial for brain function, skin health, and weight management due to their high antioxidant and fiber content.",
+    "product_main_image": {
+      "type": "image",
+      "url": "/images/almonds-1.jpg"
+    },
+    "product_gallary": [
+      {
+        "type": "image",
+        "url": "/images/almonds-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-4.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/almonds-5.jpg"
+      }
+    ],
+    "product_variations": [
+      {
+        "variant_id": "1",
+        "weight": 250,
+        "units": "g",
+        "price": 100.0
+      },
+      {
+        "variant_id": "2",
+        "weight": 500,
+        "units": "g",
+        "price": 200.0
+      },
+      {
+        "variant_id": "3",
+        "weight": 1,
+        "units": "Kg",
+        "price": 400.0
+      }
+    ],
+    "product_tags": ["Almonds", "Healthy", "Nutritious"],
+    "discount_rate": 10.0,
+    "stock_available": 100
+  },
+  {
+    "product_id": "2",
+    "product_name": "Cashews",
+    "product_category": "dryfruits",
+    "product_slug": "cashews",
+    "product_description": "Cashews are kidney-shaped nuts that grow on the cashew tree, native to Brazil. They are rich in healthy fats, protein, and essential minerals like magnesium and zinc. Cashews are widely used in cooking, from savory dishes to desserts and dairy-free alternatives. They are commonly roasted, salted, or blended into creamy spreads and sauces. In addition to their delicious taste, cashews offer various health benefits, including improved heart health and better bone strength.",
+    "product_main_image": {
+      "type": "image",
+      "url": "/images/cashews-1.avif"
+    },
+    "product_gallary": [
+      {
+        "type": "image",
+        "url": "/images/cashews-2.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/cashews-3.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/cashews-4.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/cashews-5.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/cashews-6.avif"
+      }
+    ],
+    "product_variations": [
+      {
+        "variant_id": "1",
+        "weight": 250,
+        "units": "g",
+        "price": 50.0
+      },
+      {
+        "variant_id": "2",
+        "weight": 500,
+        "units": "g",
+        "price": 90.0
+      },
+      {
+        "variant_id": "3",
+        "weight": 1,
+        "units": "Kg",
+        "price": 145.0
+      }
+    ],
+    "product_tags": ["cashews", "healthy", "nutritious"],
+    "discount_rate": 10.0,
+    "stock_available": 100
+  },
+  {
+    "product_id": "3",
+    "product_name": "Figs",
+    "product_category": "dryfruits",
+    "product_slug": "figs",
+    "product_description": "Figs are sweet, pear-shaped fruits that grow on the Ficus tree, native to the Middle East and Mediterranean. They are rich in fiber, antioxidants, and essential minerals like calcium and potassium. Figs can be eaten fresh or dried and are often used in desserts, salads, and jams. They aid digestion, support heart health, and help regulate blood sugar levels. Their unique taste and chewy texture make them a popular and nutritious snack.",
+    "product_main_image": {
+      "type": "image",
+      "url": "/images/figs-1.avif"
+    },
+    "product_gallary": [
+      {
+        "type": "image",
+        "url": "/images/figs-2.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/figs-3.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/figs-4.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/figs-5.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/figs-6.avif"
+      }
+    ],
+    "product_variations": [
+      {
+        "variant_id": "1",
+        "weight": 250,
+        "units": "g",
+        "price": 150.0
+      },
+      {
+        "variant_id": "2",
+        "weight": 500,
+        "units": "g",
+        "price": 300.0
+      },
+      {
+        "variant_id": "3",
+        "weight": 1,
+        "units": "Kg",
+        "price": 600.0
+      }
+    ],
+    "product_tags": ["figs", "healthy", "nutritious"],
+    "discount_rate": 10.0,
+    "stock_available": 100
+  }
+]

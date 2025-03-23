@@ -23,7 +23,7 @@ export default function ProductCard({ productDetails }) {
             <div className={styles.product_image}>
                 <Image
                     src={`${productDetails?.product_main_image?.url}`}
-                    alt={`Almond 1`}
+                    alt={`${productDetails?.product_name} 1`}
                     width={150}
                     height={150}
                     className="rounded-md"

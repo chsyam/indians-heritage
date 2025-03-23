@@ -599,12 +599,12 @@
     "product_description": "Gold coins are a precious investment and a mark of wealth.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/gold-coin-1.png"
+      "url": "/images/gold-coin-1.jpg"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/gold-coin-2.png"
+        "url": "/images/gold-coin-2.jpg"
       }
     ],
     "product_variations": [
