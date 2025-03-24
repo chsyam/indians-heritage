@@ -1,0 +1,16 @@
+.container {
+    background-color: #f4f4f4;
+}
+
+.bestSellerContainer {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 20px 20px;
+}
+
+.card_section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
