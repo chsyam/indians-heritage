@@ -15,8 +15,8 @@ export default function OurBestSellers() {
     return (
         <div className={styles.container}>
             <div className={styles.bestSellerContainer}>
-                <div className="flex justify-between gap-4 items-center flex-wrap">
-                    <div className="text-3xl font-medium">
+                <div className="flex justify-between gap-4 items-center flex-wrap bg-[#F1F5F9]">
+                    <div className="text-3xl font-medium text-[#EF5D29]">
                         Our Best sellers
                     </div>
                     <button className="bg-[#EF5D29] py-2 px-4 rounded-md font-medium tracking-wide text-white cursor-pointer">
@@ -39,7 +39,7 @@ export default function OurBestSellers() {
                         })
                     }
                     {
-                        allProducts.slice(0, 3)?.map((product, index) => {
+                        allProducts.slice(0, 2)?.map((product, index) => {
                             return (
                                 <ProductCard key={index} productDetails={product} />
                             )

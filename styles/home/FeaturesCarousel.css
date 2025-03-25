@@ -1,3 +1,8 @@
+.features_carousel {
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
 .features_carousel .embla {
     position: relative;
     max-width: 100%;

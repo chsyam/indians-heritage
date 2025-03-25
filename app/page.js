@@ -9,8 +9,8 @@ export default function Home() {
 		<div className="h-[2000px]">
 			<FeaturesCarousel />
 			<CategoryCarousel />
-			<HowItWorks />
 			<OurBestSellers />
+			<HowItWorks />
 		</div>
 	);
 }

@@ -41,7 +41,7 @@ export default function HowItWorks() {
                                 <div className="text-2xl font-semibold text-[#EF5D29] text-center">
                                     Step {stage.step}
                                 </div>
-                                <img src={stage.url} alt={stage.step} className="w-[250px] h-[250px] my-2 rounded-2xl" />
+                                <img src={stage.url} alt={stage.step} fetchPriority="high" className="w-[250px] h-[250px] my-2 rounded-2xl" />
                                 <div className="text-[18px] font-medium text-center my-2 max-w-[250px]">
                                     {stage.description}
                                 </div>

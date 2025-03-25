@@ -27,6 +27,7 @@ export default function ProductCard({ productDetails }) {
                     width={150}
                     height={150}
                     className="rounded-md"
+                    priority={true}
                 />
                 <div className={styles.product_options}>
                     <div className="flex justify-start items-center gap-2 text-[18px] cursor-pointer hover:text-[#EF5D29]">

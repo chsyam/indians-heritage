@@ -58,6 +58,7 @@ export default function CategoryCarousel() {
                                         height={200}
                                         alt={`Slide ${index + 1}`}
                                         className="embla__image"
+                                        priority={true}
                                     />
                                 </div>
                             ))
