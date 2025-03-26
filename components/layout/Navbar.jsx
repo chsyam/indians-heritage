@@ -3,11 +3,17 @@
 import React, { useState, useEffect } from "react";
 import styles from "./../../styles/Layout/Navbar.module.css";
 import Link from "next/link";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Search } from "lucide-react";
+import ProductSearch from "./ProductSearch";
 
 export default function Navbar() {
     const [toggleDropdownIndex, setToggleDropdownIndex] = useState(-1);
     const [activeMenuIndex, setActiveMenuIndex] = useState(-1);
+    const [openSearchPopup, setOpenSearchPopup] = useState(false);
+
+    useEffect(() => {
+        console.log("openSearchPopup..!", openSearchPopup);
+    }, [openSearchPopup])
 
     const navbarMenuList = [
         {
@@ -45,8 +51,9 @@ export default function Navbar() {
             ]
         },
         {
-            name: "About Us",
-            link: "/about"
+            name: "Search",
+            link: "#",
+            icon: <Search />
         },
         {
             name: "Contact Us",
@@ -80,14 +87,18 @@ export default function Navbar() {
                                         onMouseEnter={() => setToggleDropdownIndex(index)}
                                         onMouseLeave={() => setToggleDropdownIndex(-1)}
                                     >
-                                        <Link href={`${item.link}`} className="">
+                                        <Link href={`${item.link}`}>
                                             <div className={`flex items-center gap-[2px] justify-center ${toggleDropdownIndex === index && 'text-[#FFF]'} ${activeMenuIndex === index && 'text-[#FFF] font-semibold'}`}>
-                                                {item.name}
+
+                                                {item.name === "Search" ? (
+                                                    <div onClick={() => setOpenSearchPopup(true)}>
+                                                        {item?.icon}
+                                                    </div>
+                                                ) : item.name}
                                                 {item.subMenu && toggleDropdownIndex !== index && <ChevronDown />}
                                                 {item.subMenu && toggleDropdownIndex === index && <ChevronUp />}
                                             </div>
                                         </Link>
-
                                         {
                                             item.subMenu && (
                                                 <div className={styles.dropdownContent}>
@@ -101,6 +112,11 @@ export default function Navbar() {
                                                         })
                                                     }
                                                 </div>
+                                            )
+                                        }
+                                        {
+                                            openSearchPopup && (
+                                                <ProductSearch openSearchPopup={openSearchPopup} setOpenSearchPopup={setOpenSearchPopup} />
                                             )
                                         }
                                     </li>
