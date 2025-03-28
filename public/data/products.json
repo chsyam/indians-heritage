@@ -120,11 +120,11 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/banana-2.jpg"
+        "url": "/images/banana-2.avif"
       },
       {
         "type": "image",
-        "url": "/images/banana-3.jpg"
+        "url": "/images/banana-3.avif"
       }
     ],
     "product_variations": [
@@ -152,11 +152,15 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/grapes-2.jpg"
+        "url": "/images/grapes-2.avif"
       },
       {
         "type": "image",
-        "url": "/images/grapes-3.jpg"
+        "url": "/images/grapes-3.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/grapes-4.avif"
       }
     ],
     "product_variations": [
@@ -179,12 +183,20 @@
     "product_description": "Onions are rich in antioxidants and have anti-inflammatory effects. They enhance the flavor of various dishes.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/onion-1.jpg"
+      "url": "/images/onion-1.avif"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/onion-2.jpg"
+        "url": "/images/onion-2.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/onion-3.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/onion-4.avif"
       }
     ],
     "product_variations": [
@@ -213,6 +225,14 @@
       {
         "type": "image",
         "url": "/images/green-chilli-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/green-chilli-3.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/green-chilli-4.avif"
       }
     ],
     "product_variations": [
@@ -235,12 +255,20 @@
     "product_description": "Red chillies provide heat and enhance flavor in various dishes. They are rich in vitamins and antioxidants.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/red-chilli-1.jpg"
+      "url": "/images/red-chilli-1.avif"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/red-chilli-2.jpg"
+        "url": "/images/red-chilli-2.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/red-chilli-3.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/red-chilli-4.avif"
       }
     ],
     "product_variations": [
@@ -286,7 +314,7 @@
   {
     "product_id": "9",
     "product_name": "Rice",
-    "product_category": "grocery",
+    "product_category": "groceries",
     "product_slug": "rice",
     "product_description": "Rice is a staple food rich in carbohydrates, providing energy and essential nutrients.",
     "product_main_image": {
@@ -314,17 +342,21 @@
   {
     "product_id": "10",
     "product_name": "Red Chilli Powder",
-    "product_category": "grocery",
+    "product_category": "groceries",
     "product_slug": "red-chilli-powder",
     "product_description": "Red chilli powder is a key spice used in Indian cuisine to add heat and flavor.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/red-chilli-powder-1.jpg"
+      "url": "/images/chilli-powder-1.jpg"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/red-chilli-powder-2.jpg"
+        "url": "/images/chilli-powder-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/chilli-powder-3.jpg"
       }
     ],
     "product_variations": [
@@ -342,7 +374,7 @@
   {
     "product_id": "11",
     "product_name": "Turmeric Powder",
-    "product_category": "grocery",
+    "product_category": "groceries",
     "product_slug": "turmeric-powder",
     "product_description": "Turmeric powder is known for its anti-inflammatory and antioxidant properties.",
     "product_main_image": {
@@ -370,7 +402,7 @@
   {
     "product_id": "12",
     "product_name": "Ghee",
-    "product_category": "grocery",
+    "product_category": "groceries",
     "product_slug": "ghee",
     "product_description": "Ghee is a clarified butter rich in healthy fats, promoting digestion and immunity.",
     "product_main_image": {
@@ -380,7 +412,11 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/ghee-2.jpg"
+        "url": "/images/ghee-2.png"
+      },
+      {
+        "type": "image",
+        "url": "/images/ghee-3.jpg"
       }
     ],
     "product_variations": [
@@ -398,7 +434,7 @@
   {
     "product_id": "13",
     "product_name": "Oil",
-    "product_category": "grocery",
+    "product_category": "groceries",
     "product_slug": "oil",
     "product_description": "Cooking oil provides essential fats and energy, making it an essential part of cooking.",
     "product_main_image": {
@@ -409,6 +445,10 @@
       {
         "type": "image",
         "url": "/images/oil-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/oil-3.jpg"
       }
     ],
     "product_variations": [
@@ -437,6 +477,10 @@
       {
         "type": "image",
         "url": "/images/mango-pickle-2.jpg"
+      },
+      {
+        "type": "image",
+        "url": "/images/mango-pickle-3.jpg"
       }
     ],
     "product_variations": [
@@ -464,7 +508,11 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/gulab-jamun-2.jpg"
+        "url": "/images/gulab-jamun-2.avif"
+      },
+      {
+        "type": "image",
+        "url": "/images/gulab-jamun-3.jpg"
       }
     ],
     "product_variations": [
@@ -492,7 +540,7 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/mysore-pak-2.jpg"
+        "url": "/images/mysore-pak-2.avif"
       }
     ],
     "product_variations": [
@@ -548,7 +596,7 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/silver-coin-2.jpg"
+        "url": "/images/silver-coin-2.avif"
       }
     ],
     "product_variations": [
@@ -576,7 +624,7 @@
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/silver-ring-2.jpg"
+        "url": "/images/silver-ring-2.avif"
       }
     ],
     "product_variations": [
@@ -599,12 +647,12 @@
     "product_description": "Gold coins are a precious investment and a mark of wealth.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/gold-coin-1.png"
+      "url": "/images/gold-coin-1.avif"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/gold-coin-2.png"
+        "url": "/images/gold-coin-2.jpg"
       }
     ],
     "product_variations": [
@@ -627,12 +675,12 @@
     "product_description": "Gold rings are a timeless symbol of love and prosperity.",
     "product_main_image": {
       "type": "image",
-      "url": "/images/gold-ring-1.jpg"
+      "url": "/images/gold-ring-1.png"
     },
     "product_gallary": [
       {
         "type": "image",
-        "url": "/images/gold-ring-2.jpg"
+        "url": "/images/gold-ring-2.png"
       }
     ],
     "product_variations": [

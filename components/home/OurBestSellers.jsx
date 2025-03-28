@@ -25,21 +25,7 @@ export default function OurBestSellers() {
                 </div>
                 <div className={styles.card_section}>
                     {
-                        allProducts.slice(0, 3)?.map((product, index) => {
-                            return (
-                                <ProductCard key={index} productDetails={product} />
-                            )
-                        })
-                    }
-                    {
-                        allProducts.slice(0, 3)?.map((product, index) => {
-                            return (
-                                <ProductCard key={index} productDetails={product} />
-                            )
-                        })
-                    }
-                    {
-                        allProducts.slice(0, 2)?.map((product, index) => {
+                        allProducts.slice(0, 8)?.map((product, index) => {
                             return (
                                 <ProductCard key={index} productDetails={product} />
                             )

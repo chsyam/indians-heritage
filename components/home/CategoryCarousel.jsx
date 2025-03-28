@@ -4,24 +4,36 @@ import useEmblaCarousel from "embla-carousel-react";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import "./../../styles/home/CategoryCarousel.css";
+import { useRouter } from "next/navigation";
 
 export default function CategoryCarousel() {
+    const router = useRouter();
+
     const product_gallary = [
         {
             "type": "image",
-            "url": "/images/almonds-2.jpg"
+            "imgUrl": "/images/fruits.jpg",
+            "category": "fruits"
         },
         {
             "type": "image",
-            "url": "/images/almonds-3.jpg"
+            "imgUrl": "/images/sweets.jpg",
+            "category": "sweets"
         },
         {
             "type": "image",
-            "url": "/images/almonds-4.jpg"
+            "imgUrl": "/images/spicies.jpg",
+            "category": "spicies"
         },
         {
             "type": "image",
-            "url": "/images/almonds-5.jpg"
+            "imgUrl": "/images/jewellery.jpg",
+            "category": "jewellery"
+        },
+        {
+            "type": "image",
+            "imgUrl": "/images/pickles.jpg",
+            "category": "pickles"
         }
     ];
 
@@ -51,27 +63,14 @@ export default function CategoryCarousel() {
                     <div className="embla__container">
                         {
                             product_gallary.map((slide, index) => (
-                                <div className="embla__slide" key={index}>
+                                <div className="embla__slide" key={index} onClick={() => router.push(`/product-category/${slide?.category}`)}>
                                     <Image
-                                        src={slide?.url}
+                                        src={slide?.imgUrl}
                                         width={300}
                                         height={200}
                                         alt={`Slide ${index + 1}`}
                                         className="embla__image"
                                         priority={true}
-                                    />
-                                </div>
-                            ))
-                        }
-                        {
-                            product_gallary.map((slide, index) => (
-                                <div className="embla__slide" key={index}>
-                                    <Image
-                                        src={slide?.url}
-                                        width={300}
-                                        height={200}
-                                        alt={`Slide ${index + 1}`}
-                                        className="embla__image"
                                     />
                                 </div>
                             ))

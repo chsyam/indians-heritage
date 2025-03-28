@@ -9,20 +9,16 @@ export default function FeaturesCarousel() {
     const product_gallary = [
         {
             "type": "image",
-            "url": "/images/almonds-2.jpg"
+            "url": "/images/sliding-1.jpg"
         },
         {
             "type": "image",
-            "url": "/images/almonds-3.jpg"
+            "url": "/images/sliding-2.png"
         },
         {
             "type": "image",
-            "url": "/images/almonds-4.jpg"
+            "url": "/images/sliding-3.png"
         },
-        {
-            "type": "image",
-            "url": "/images/almonds-5.jpg"
-        }
     ];
 
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });

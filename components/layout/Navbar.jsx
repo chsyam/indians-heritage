@@ -29,12 +29,32 @@ export default function Navbar() {
             link: "/categories",
             subMenu: [
                 {
+                    name: "All Products",
+                    link: "/product-category/all"
+                },
+                {
+                    name: "Fruits",
+                    link: "/product-category/fruits"
+                },
+                {
+                    name: "Vegetables",
+                    link: "/product-category/vegetables"
+                },
+                {
                     name: "Groceries",
                     link: "/product-category/groceries"
                 },
                 {
                     name: "Pickles",
                     link: "/product-category/pickles"
+                },
+                {
+                    name: "Sweets",
+                    link: "/product-category/sweets"
+                },
+                {
+                    name: "Jewellery",
+                    link: "/product-category/jewellery"
                 },
                 {
                     name: "Spices",
@@ -105,9 +125,11 @@ export default function Navbar() {
                                                     {
                                                         item.subMenu.map((subItem, subIndex) => {
                                                             return (
-                                                                <Link key={subIndex} href={`${subItem.link}`}>
-                                                                    {subItem.name}
-                                                                </Link>
+                                                                <div key={subIndex} className={styles.dropdownRow}>
+                                                                    <Link className="flex-1" href={`${subItem.link}`}>
+                                                                        {subItem.name}
+                                                                    </Link>
+                                                                </div>
                                                             )
                                                         })
                                                     }

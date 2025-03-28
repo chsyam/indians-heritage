@@ -6,7 +6,7 @@ import OurBestSellers from "@/components/home/OurBestSellers";
 
 export default function Home() {
 	return (
-		<div className="h-[2000px]">
+		<div className="">
 			<FeaturesCarousel />
 			<CategoryCarousel />
 			<OurBestSellers />

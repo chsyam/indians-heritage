@@ -5,25 +5,25 @@ const stages = [
         step: 1,
         description: "Select what you want exactly and order your grocery.",
         fileType: 'img',
-        url: '/images/store-1.jpg'
+        url: '/images/order-1.webp'
     },
     {
         step: 2,
         description: "Once we receive your order, we'll start processing it.",
         fileType: 'img',
-        url: '/images/process-1.jpg'
+        url: '/images/order-2.png'
     },
     {
         step: 3,
         description: "We'll carefully package your grocery and notify your order has been shipped.",
         fileType: 'img',
-        url: '/images/packing-1.jpg'
+        url: '/images/order-3.webp'
     },
     {
         step: 4,
         description: "We deliver Indian groceries New Zealand wide. Your grocery is right at your home.",
         fileType: 'img',
-        url: '/images/deliver-1.jpg'
+        url: '/images/order-4.jpeg'
     }
 ];
 

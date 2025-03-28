@@ -1,0 +1,31 @@
+.container {
+    background-color: #00879E;
+}
+
+.copyright {
+    border-top: 1px solid #FFFFFF;
+    margin: 0 auto;
+    max-width: 1400px;
+    padding: 20px 20px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.copyright_content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.copyright_icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.copyright_icons div {
+    cursor: pointer;
+}

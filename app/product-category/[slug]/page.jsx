@@ -23,8 +23,12 @@ export default function ProductCategory({ params }) {
         }
 
         try {
-            const temp = products.filter((item) => item.product_category === slug);
-            setProductsList(temp);
+            if (slug === "all") {
+                setProductsList(products);
+            } else {
+                const temp = products.filter((item) => item.product_category === slug);
+                setProductsList(temp);
+            }
         } catch (error) {
             setProductsList([]);
             console.log(error);
