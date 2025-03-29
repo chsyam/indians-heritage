@@ -6,6 +6,67 @@ import Link from "next/link";
 import { ChevronDown, ChevronUp, Search } from "lucide-react";
 import ProductSearch from "./ProductSearch";
 
+const navbarMenuList = [
+    {
+        name: "Home",
+        link: "/"
+    },
+    {
+        name: "Shop",
+        link: "/shop-all"
+    },
+    {
+        name: "Categories",
+        link: "/categories",
+        subMenu: [
+            {
+                name: "All Products",
+                link: "/product-category/all"
+            },
+            {
+                name: "Fruits",
+                link: "/product-category/fruits"
+            },
+            {
+                name: "Vegetables",
+                link: "/product-category/vegetables"
+            },
+            {
+                name: "Groceries",
+                link: "/product-category/groceries"
+            },
+            {
+                name: "Pickles",
+                link: "/product-category/pickles"
+            },
+            {
+                name: "Sweets",
+                link: "/product-category/sweets"
+            },
+            {
+                name: "Jewellery",
+                link: "/product-category/jewellery"
+            },
+            {
+                name: "Spices",
+                link: "/product-category/spices"
+            },
+            {
+                name: "Dry fruits",
+                link: "/product-category/dryfruits"
+            },
+            {
+                name: "Others",
+                link: "/product-category/others"
+            }
+        ]
+    },
+    {
+        name: "Contact Us",
+        link: "/contact-us"
+    }
+]
+
 export default function Navbar() {
     const [toggleDropdownIndex, setToggleDropdownIndex] = useState(-1);
     const [activeMenuIndex, setActiveMenuIndex] = useState(-1);
@@ -15,71 +76,6 @@ export default function Navbar() {
         console.log("openSearchPopup..!", openSearchPopup);
     }, [openSearchPopup])
 
-    const navbarMenuList = [
-        {
-            name: "Home",
-            link: "/"
-        },
-        {
-            name: "Shop",
-            link: "/shop-all"
-        },
-        {
-            name: "Categories",
-            link: "/categories",
-            subMenu: [
-                {
-                    name: "All Products",
-                    link: "/product-category/all"
-                },
-                {
-                    name: "Fruits",
-                    link: "/product-category/fruits"
-                },
-                {
-                    name: "Vegetables",
-                    link: "/product-category/vegetables"
-                },
-                {
-                    name: "Groceries",
-                    link: "/product-category/groceries"
-                },
-                {
-                    name: "Pickles",
-                    link: "/product-category/pickles"
-                },
-                {
-                    name: "Sweets",
-                    link: "/product-category/sweets"
-                },
-                {
-                    name: "Jewellery",
-                    link: "/product-category/jewellery"
-                },
-                {
-                    name: "Spices",
-                    link: "/product-category/spices"
-                },
-                {
-                    name: "Dry fruits",
-                    link: "/product-category/dryfruits"
-                },
-                {
-                    name: "Others",
-                    link: "/product-category/others"
-                }
-            ]
-        },
-        {
-            name: "Search",
-            link: "#",
-            icon: <Search />
-        },
-        {
-            name: "Contact Us",
-            link: "/contact-us"
-        }
-    ]
 
     useEffect(() => {
         navbarMenuList?.forEach((menu, index) => {
@@ -109,12 +105,7 @@ export default function Navbar() {
                                     >
                                         <Link href={`${item.link}`}>
                                             <div className={`flex items-center gap-[2px] justify-center ${toggleDropdownIndex === index && 'text-[#FFF]'} ${activeMenuIndex === index && 'text-[#FFF] font-semibold'}`}>
-
-                                                {item.name === "Search" ? (
-                                                    <div onClick={() => setOpenSearchPopup(true)}>
-                                                        {item?.icon}
-                                                    </div>
-                                                ) : item.name}
+                                                {item.name}
                                                 {item.subMenu && toggleDropdownIndex !== index && <ChevronDown />}
                                                 {item.subMenu && toggleDropdownIndex === index && <ChevronUp />}
                                             </div>
@@ -146,6 +137,9 @@ export default function Navbar() {
                             )
                         })
                     }
+                    <div className={styles.searchIcon}>
+                        <Search strokeWidth={2} size={28} onClick={() => setOpenSearchPopup(true)} />
+                    </div>
                 </div>
             </div>
         </nav>

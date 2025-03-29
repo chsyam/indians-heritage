@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import styles from "./../../styles/home/OurBestSellers.module.css";
 import products from "@/public/data/products.json";
 import ProductCard from "../product/ProductCard";
+import { useRouter } from "next/navigation";
 
 export default function OurBestSellers() {
     const [allProducts, setAllProducts] = useState([]);
+    const router = useRouter();
 
     useEffect(() => {
         setAllProducts(products);
@@ -19,7 +21,7 @@ export default function OurBestSellers() {
                     <div className="text-3xl font-medium text-[#EF5D29]">
                         Our Best sellers
                     </div>
-                    <button className="bg-[#EF5D29] py-2 px-4 rounded-md font-medium tracking-wide text-white cursor-pointer">
+                    <button className="bg-[#EF5D29] py-2 px-4 rounded-md font-medium tracking-wide text-white cursor-pointer" onClick={() => router.push("/shop-all")}>
                         Start Shopping
                     </button>
                 </div>
